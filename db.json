@@ -1,0 +1,18 @@
+{
+  "transactions": [  
+    {
+      "id": 1,
+      "type": "income",
+      "amount": 1000,
+      "description": "工资",
+      "date": "2025-11-01"
+    },
+    {
+      "id": 2,
+      "type": "expense",
+      "amount": 200,
+      "description": "吃饭",
+      "date": "2025-11-02"
+    }
+  ]
+}
