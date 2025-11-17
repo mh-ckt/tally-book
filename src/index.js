@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from 'react'
+// src/index.js
+import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+// 导入页面组件
+import Home from './pages/home'
+import Transactions from './pages/transactions'
+import AddTransaction from './pages/addTransaction/index'
+// 导入导航栏
+import Navbar from './components/navbar'
 
+// 根组件（包含导航栏和路由出口）
 const App = () => {
-  const [transactions, setTransactions] = useState([])
-
-  // 从 json-server 获取数据
-  useEffect(() => {
-    fetch('http://localhost:5000/transactions')
-      .then((res) => res.json())
-      .then((data) => setTransactions(data))
-  }, [])
-
   return (
     <div>
-      <h1>记账记录</h1>
-      <ul>
-        {transactions.map((item) => (
-          <li key={item.id}>
-            {item.date}：{item.description}（
-            {item.type === 'income' ? '收入' : '支出'} {item.amount}元）
-          </li>
-        ))}
-      </ul>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/add" element={<AddTransaction />} />
+      </Routes>
     </div>
   )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<App />)
+// 用 BrowserRouter 包裹整个应用
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+)
