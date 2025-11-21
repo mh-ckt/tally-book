@@ -20,6 +20,7 @@
     "url": "https://github.com/mh-ckt/tally-book/issues"
   },
   "dependencies": {
+    "antd": "^5.29.1",
     "axios": "^1.13.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
